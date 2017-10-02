@@ -50,9 +50,9 @@ $("#addAnimal").on("click",function(event){
 
 });
 
-//action for new animalButtons
+//action for  animalButtons
 function giphInfo(){
-$(".giphy").on("click",function(){
+//$(".giphy").on("click",function(){
 	//empty the gifs div so animals can be replace everytime button is clicked
 	$("#gifs").empty();
 	var myAnimal = $(this).attr("data-name");
@@ -83,7 +83,7 @@ $(".giphy").on("click",function(){
           	animalImage.attr("data-still", results[i].images.fixed_height_still.url);
           	animalImage.attr("data-animate", results[i].images.fixed_height.url);
           	animalImage.addClass("animalGifs");
-          	$("#giphyAnimalsDiv").append(animalImage);
+          	$(animalDiv).append(animalImage);
           	
           }
           $("#gifs").append(animalDiv);
@@ -93,10 +93,12 @@ $(".giphy").on("click",function(){
       });
 	
 
-});
+//});
 }
 // Adding a click event listener to all elements with a class of "giphy"
 $(document).on("click", ".giphy", giphInfo);
+
+//when you dynamically event binding
 
 
 //action for the giphs active and still states
@@ -104,7 +106,7 @@ $(document).on("click", ".giphy", giphInfo);
 function clickedAnimals(){
 $(".animalGifs").on("click", function(){
 	var gifState = $(this).attr("data-state");
-	console.log(gifState);
+	
 	if (gifState === "still") {
         $(this).attr("src", $(this).attr("data-animate"));
         $(this).attr("data-state", "animate");
@@ -113,6 +115,7 @@ $(".animalGifs").on("click", function(){
         $(this).attr("data-state", "still");
       }
     });
+	//console.log(gifState);
 }
 $(document).on("click", ".animalGifs", clickedAnimals);
 
