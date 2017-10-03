@@ -3,7 +3,7 @@
 
 
 //create an array of animals
-var animalArray =["hamster","goat","dog"];
+var animalArray =["hamster","goat","dog","goldfish","cat","mice"];
 
 
 function getUserInput(){
@@ -16,7 +16,7 @@ function getUserInput(){
 //put the users input into a query string
 function getQueryString(str){
 	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-    str + "&api_key=dc6zaTOxFJmzC&limit=5";
+    str + "&api_key=dc6zaTOxFJmzC&limit=25";
     console.log(queryURL);
     return queryURL;
 
@@ -28,6 +28,7 @@ function createButton(arr){
 	for(var i =0; i< arr.length; i++){
 		var animalButton = $("<button>");
 		animalButton.addClass("giphy");
+    animalButton.addClass("btn btn-primary");
 		animalButton.attr("type","button");
 		animalButton.attr("data-name",arr[i]);
 		animalButton.text(arr[i]);
