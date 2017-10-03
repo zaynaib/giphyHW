@@ -79,15 +79,29 @@ function giphInfo(){
           	//animalDiv.empty();
 
           	var animalImage = $("<img>");
+            var animalImageDiv = $("<div id=imageDiv>");
+
+            var ratingParagraph = $("<p>");
+            ratingParagraph.attr("id","ratings");
+            ratingParagraph.text(results[i].rating);
+
           	animalImage.attr('src',results[i].images.fixed_height_still.url);
           	animalImage.attr("data-state", "still");
           	animalImage.attr("data-still", results[i].images.fixed_height_still.url);
           	animalImage.attr("data-animate", results[i].images.fixed_height.url);
           	animalImage.addClass("animalGifs");
-          	$(animalDiv).append(animalImage);
+
+            animalImageDiv.append(ratingParagraph);
+            animalImageDiv.append(animalImage);
+            $("#gifs").append(animalImageDiv);
+
+            //$(animalDiv).append(ratingParagraph);
+
+          	//$(animalDiv).append(animalImage);
+            
           	
           }
-          $("#gifs").append(animalDiv);
+          //$("#gifs").append(animalDiv);
 
           //get the still images
           //get the action images
